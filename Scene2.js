@@ -23,6 +23,8 @@ class Scene2 extends Phaser.Scene {
 
         this.player.setVelocity(0);
     
+        // need to figure out how to smoothly change which direction player faces
+        
         if(this.cursorKeys.left.isDown){
           this.player.setVelocityX(-gameSettings.playerSpeed);
           this.player.play("left");
