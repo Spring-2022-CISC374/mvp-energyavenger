@@ -4,11 +4,11 @@ class Scene1 extends Phaser.Scene {
     }
 
     preload(){
-        this.load.spritesheet("player", "assets/spritesheets/player.png",{
-            frameWidth: 24,
-            frameHeight: 32
+        this.load.spritesheet("player", "assets/spritesheets/player2.png",{
+            frameWidth: 48,
+            frameHeight: 48,
+            number_of_frames: 12
         });
-
     }
 
     create(){
@@ -16,41 +16,33 @@ class Scene1 extends Phaser.Scene {
         this.scene.start("playGame");
 
         this.anims.create({
-            key: "forward",
-            frames: this.anims.generateFrameNumbers("player",{
-                start: 0,
-                end: 2
-            }),
-            frameRate: 20,
-            repeat: 0
+            key: "player_right",
+            frames: this.anims.generateFrameNames("player", { frames: [3,7,11,15] }),
+            repeat: -1,
+            frameRate: 6
         });
+
         this.anims.create({
-            key: "right",
-            frames: this.anims.generateFrameNumbers("player",{
-                start: 3,
-                end: 5
-            }),
-            frameRate: 20,
-            repeat: 0
+            key: "player_left",
+            frames: this.anims.generateFrameNames("player", { frames: [1,5,9,13] }),
+            repeat: -1,
+            frameRate: 6
         });
+
         this.anims.create({
-            key: "left",
-            frames: this.anims.generateFrameNumbers("player",{
-                start: 6,
-                end: 8
-            }),
-            frameRate: 20,
-            repeat: 0
+            key: "player_forward",
+            frames: this.anims.generateFrameNames("player", { frames: [2,6,10,14] }),
+            repeat: -1,
+            frameRate: 6
         });
+
         this.anims.create({
-            key: "backward",
-            frames: this.anims.generateFrameNumbers("player",{
-                start: 9,
-                end: 11
-            }),
-            frameRate: 20,
-            repeat: 0
+            key: "player_backward",
+            frames: this.anims.generateFrameNames("player", { frames: [0,4,8,12] }),
+            repeat: -1,
+            frameRate: 6
         });
+
 
     }
 }
