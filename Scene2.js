@@ -28,7 +28,11 @@ class Scene2 extends Phaser.Scene {
     }
     movePlayerManager(){
 
+        // prevents player from moving off screen
+        this.player.body.setCollideWorldBounds()
+
         this.player.setVelocity(0);
+
         /*
         if(Phaser.Input.Keyboard.JustDown(upKey)){
           this.player.play("player_forward");
@@ -62,5 +66,12 @@ class Scene2 extends Phaser.Scene {
           this.player.setVelocityY(gameSettings.playerSpeed);
           this.player.play("player_backward");
         }
+
+        // interaction key - shift
+        if (this.cursorKeys.shift.isDown){
+          //this.player.play("player_interact")
+        }
+
+
     }
 }

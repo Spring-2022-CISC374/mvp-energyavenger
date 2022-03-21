@@ -15,6 +15,7 @@ class Scene1 extends Phaser.Scene {
         this.add.text(20, 20, "loading game ...");
         this.scene.start("playGame");
 
+        // player movement animations
         this.anims.create({
             key: "player_right",
             frames: this.anims.generateFrameNames("player", { frames: [3,7,11,15] }),
@@ -42,6 +43,14 @@ class Scene1 extends Phaser.Scene {
             repeat: -1,
             frameRate: 6
         });
+
+        // interaction animations
+        this.anims.create({
+            key: "player_interact",
+            
+            repeat: -1,
+            frameRate: 6
+        })
 
 
     }
