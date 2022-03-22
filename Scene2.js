@@ -19,12 +19,17 @@ class Scene2 extends Phaser.Scene {
         upKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         downKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         */
+        this.enemy = this.physics.add.sprite(config.width / 2 - 50, config.height / 2, "enemy");
+        // this.enemy.play("enemy_anim");
+        this.enemy.setInteractive();
+        this.enemy.setCollideWorldBounds(true);
+        this.physics.world.setBoundsCollision();
     }
 
     update(){
-
         this.movePlayerManager();
-
+        this.changeEnemySpeed();
+        this.moveEnemy(this.enemy);
     }
     movePlayerManager(){
 
@@ -73,5 +78,21 @@ class Scene2 extends Phaser.Scene {
         }
 
 
+    }
+
+    changeEnemySpeed(){
+      var changeSpeed = Phaser.Math.Between(1, 50);
+      var randomX = Phaser.Math.Between(-1, 1);
+      var randomY = Phaser.Math.Between(-1, 1);
+  
+      if(changeSpeed == 3){
+        gameSettings.enemyX = randomX;
+        gameSettings.enemyY = randomY; 
+      }
+    }
+  
+    moveEnemy(enemy) {
+        enemy.y += gameSettings.enemyY;
+        enemy.x += gameSettings.enemyX;
     }
 }

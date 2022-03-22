@@ -1,7 +1,9 @@
 var gameSettings = {
 	playerSpeed: 200,
+	enemySpeed: 300,
+  	enemyX: 1,
+  	enemyY: 1
 }
-
 
 var config = {
 	width: 1280,
