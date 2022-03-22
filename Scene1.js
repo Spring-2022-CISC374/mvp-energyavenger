@@ -9,11 +9,22 @@ class Scene1 extends Phaser.Scene {
             frameHeight: 48,
             number_of_frames: 12
         });
+        this.load.spritesheet("enemy", "assets/spritesheets/enemy.png",{
+            frameWidth: 24,
+            frameHeight: 24
+          });
     }
 
     create(){
         this.add.text(20, 20, "loading game ...");
         this.scene.start("playGame");
+        
+        this.anims.create({
+            key: "enemy_anim",
+            frames: this.anims.generateFrameNumbers("enemy"),
+            frameRate: 20,
+            repeat: -1
+          });
 
         // player movement animations
         this.anims.create({
