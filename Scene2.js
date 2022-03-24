@@ -4,10 +4,20 @@ class Scene2 extends Phaser.Scene {
     }
 
     create(){
-        this.add.text(20,20, "playing", {
-            font: "25px Arial", 
-            fill: "yellow"
-        });
+        // this.add.text(20,20, "playing", {
+        //     font: "25px Arial", 
+        //     fill: "yellow"
+        // });
+
+        
+        var enemy1_count = Phaser.Math.Between(3, 5);
+        for(let i=0; i<enemy1_count; i++){
+          gameSettings.enemy1_arr[i] = this.physics.add.sprite(config.width / 2 - 50, config.height / 2, "enemy1");
+          gameSettings.enemy1_arr[i].setInteractive();
+          gameSettings.enemy1_arr[i].body.setCollideWorldBounds(true);
+          gameSettings.enemy1_arr[i].play('enemy1');
+          gameSettings.enemy1_postions.push([1, 1])
+        }
 
         this.player = this.physics.add.sprite(config.width / 2 -8, config.height - 64, "player");
         //this.player.frame = 12;
@@ -20,17 +30,17 @@ class Scene2 extends Phaser.Scene {
         upKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         downKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         */
-        this.enemy = this.physics.add.sprite(config.width / 2 - 50, config.height / 2, "enemy1");
-        this.enemy.setInteractive();
-        this.enemy.play("enemy1");
-        this.enemy.setCollideWorldBounds(true);
         this.physics.world.setBoundsCollision();
+
     }
 
     update(){
         this.movePlayerManager();
-        this.changeEnemySpeed();
-        this.moveEnemy(this.enemy);
+
+        for(let i=0; i<gameSettings.enemy1_arr.length; i++){
+          this.changeEnemySpeed(i);
+          this.moveEnemy(gameSettings.enemy1_arr[i], i);
+        }
     }
     movePlayerManager(){
 
@@ -81,26 +91,22 @@ class Scene2 extends Phaser.Scene {
 
     }
 
-    changeEnemySpeed(){
+    changeEnemySpeed(index){
       var changeSpeed = Phaser.Math.Between(1, 50);
       var randomX = Phaser.Math.Between(-1, 1);
       var randomY = Phaser.Math.Between(-1, 1);
   
       if(changeSpeed == 3){
-        gameSettings.enemyX = randomX;
-        gameSettings.enemyY = randomY; 
+        gameSettings.enemy1_postions[index][0] = randomX;
+        gameSettings.enemy1_postions[index][1] = randomY; 
       }
     }
   
-    moveEnemy(enemy) {
-      if(gameSettings.enemyY == 0 && gameSettings.enemyX == 0){
+    moveEnemy(enemy, index) {
+      if(gameSettings.enemy1_postions[index][0] == 0 && gameSettings.enemy1_postions[index][1] == 0){
         enemy.play("enemy1");
-        console.log('STAND')
       }
-      else{
-        console.log('WALK')
-      }
-      enemy.y += gameSettings.enemyY;
-      enemy.x += gameSettings.enemyX;
+      enemy.x += gameSettings.enemy1_postions[index][0];
+      enemy.y += gameSettings.enemy1_postions[index][1];
     }
 }
