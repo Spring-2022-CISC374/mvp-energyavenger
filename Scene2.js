@@ -20,9 +20,9 @@ class Scene2 extends Phaser.Scene {
         upKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         downKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         */
-        this.enemy = this.physics.add.sprite(config.width / 2 - 50, config.height / 2, "enemy");
+        this.enemy = this.physics.add.sprite(config.width / 2 - 50, config.height / 2, "enemy1");
         this.enemy.setInteractive();
-        this.enemy.play("enemy_anim");
+        this.enemy.play("enemy1");
         this.enemy.setCollideWorldBounds(true);
         this.physics.world.setBoundsCollision();
     }
@@ -93,6 +93,13 @@ class Scene2 extends Phaser.Scene {
     }
   
     moveEnemy(enemy) {
+      if(gameSettings.enemyY == 0 && gameSettings.enemyX == 0){
+        enemy.play("enemy1");
+        console.log('STAND')
+      }
+      else{
+        console.log('WALK')
+      }
       enemy.y += gameSettings.enemyY;
       enemy.x += gameSettings.enemyX;
     }
