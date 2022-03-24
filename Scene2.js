@@ -51,44 +51,46 @@ class Scene2 extends Phaser.Scene {
     }
     movePlayerManager(){
 
-        // prevents player from moving off screen
-        
-
         this.player.setVelocity(0);
-
-        /*
-        if(Phaser.Input.Keyboard.JustDown(upKey)){
-          this.player.play("player_forward");
-        }
-        if(Phaser.Input.Keyboard.JustDown(downKey)){
-          this.player.play("player_backward");
-        }
-        if(Phaser.Input.Keyboard.JustDown(leftKey)){
-          this.player.play("player_left");
-        }
-        if(Phaser.Input.Keyboard.JustDown(rightKey)){
-          this.player.play("player_right");
-        }
-        */
-
+        let keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        let keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        let keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        let keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         
-    
-        // need to figure out how to smoothly change which direction player faces
-        if(this.cursorKeys.left.isDown){
+        if(keyW.isDown) {
+         this.player.setVelocityY(-gameSettings.playerSpeed);
+         this.player.play("player_forward");
+        }
+        else if(keyA.isDown) {
           this.player.setVelocityX(-gameSettings.playerSpeed);
           this.player.play("player_left");
-        }else if(this.cursorKeys.right.isDown){
+        } 
+        else if(keyS.isDown) {
+          this.player.setVelocityY(gameSettings.playerSpeed);
+          this.player.play("player_backward");
+        } 
+        else if(keyD.isDown) {
           this.player.setVelocityX(gameSettings.playerSpeed);
           this.player.play("player_right");
         }
     
-        if(this.cursorKeys.up.isDown){
-          this.player.setVelocityY(-gameSettings.playerSpeed);
-          this.player.play("player_forward");
-        }else if(this.cursorKeys.down.isDown){
-          this.player.setVelocityY(gameSettings.playerSpeed);
-          this.player.play("player_backward");
-        }
+        // need to figure out how to smoothly change which direction player faces
+        // if(this.cursorKeys.left.isDown){
+        //   this.player.setVelocityX(-gameSettings.playerSpeed);
+        //   this.player.play("player_left");
+        // }else if(this.cursorKeys.right.isDown){
+        //   this.player.setVelocityX(gameSettings.playerSpeed);
+        //   this.player.play("player_right");
+        // }
+    
+        // if(this.cursorKeys.up.isDown){
+        //   this.player.setVelocityY(-gameSettings.playerSpeed);
+        //   this.player.play("player_forward");
+        // }else if(this.cursorKeys.down.isDown){
+        //   this.player.setVelocityY(gameSettings.playerSpeed);
+        //   this.player.play("player_backward");
+        // }
+
 
         // interaction key - shift
         if (this.cursorKeys.shift.isDown){
