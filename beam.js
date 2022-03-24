@@ -27,9 +27,8 @@ class Beam extends Phaser.GameObjects.Sprite{
       scene.beams.add(this);
   
     }
-  
-  
-    update(){
+
+    destroyBeam(){
       if(this.y > config.height || this.y < 0 ){
         this.destroy();
       }

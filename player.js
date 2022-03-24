@@ -12,7 +12,6 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         this.health = 3;
     }
 
-
     movePlayerManager(){
 
         this.setVelocity(0);

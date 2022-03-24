@@ -21,12 +21,17 @@ class Scene2 extends Phaser.Scene {
 
     update(){
         this.player.movePlayerManager();
+        this.player.shootBeamManager()
         
         for(let i=0; i<this.enemy1Group.getLength(); i++){
           this.enemy1Group.getChildren()[i].changeEnemySpeed();
           this.enemy1Group.getChildren()[i].moveEnemy();
         }
-        this.player.shootBeamManager()
+      
+        for(let i=0; i<this.beams.getLength(); i++) {
+          this.beams.getChildren()[i].destroyBeam();
+        }
+
     }
     hurtPlayer(){
       console.log("Player Hurt!")
