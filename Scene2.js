@@ -12,7 +12,7 @@ class Scene2 extends Phaser.Scene {
         this.player.setInteractive();
         this.player.body.setCollideWorldBounds(true);
         this.physics.world.setBoundsCollision();
-        
+
 
         this.enemy1Group = new Phaser.GameObjects.Group(this);
         this.beams = new Phaser.GameObjects.Group(this);
@@ -39,6 +39,7 @@ class Scene2 extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.spacebar)) {
           this.shootBeam();
         }
+        this.shootBeamManager()
     }
     movePlayerManager(){
 
@@ -48,6 +49,10 @@ class Scene2 extends Phaser.Scene {
         let keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         let keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         let keyShift = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
+        let keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        let keyDown = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+        let keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+        let keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
         
         if(keyW.isDown) {
@@ -71,6 +76,32 @@ class Scene2 extends Phaser.Scene {
         }
     }
 
+    shootBeamManager(){
+      let keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+      let keyDown = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+      let keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+      let keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+
+      if(Phaser.Input.Keyboard.JustDown(keyUp)) {
+        // this.player.play("player_forward");
+        this.shootBeam("UP")
+       }
+       else if(Phaser.Input.Keyboard.JustDown(keyDown)) {
+        //  this.player.play("player_left");
+        this.shootBeam("DOWN")
+       } 
+       else if(Phaser.Input.Keyboard.JustDown(keyLeft)) {
+        //  this.player.play("player_backward");
+        this.shootBeam("LEFT")
+       } 
+       else if(Phaser.Input.Keyboard.JustDown(keyRight)) {
+        //  this.player.play("player_right");
+        this.shootBeam("RIGHT")
+       }
+
+
+    }
+
     hurtPlayer(){
       console.log("Player Hurt!")
     }
@@ -79,7 +110,7 @@ class Scene2 extends Phaser.Scene {
       enemy.destroy();
       console.log("Enemy Hit!")
     }
-    shootBeam() {
-      var beam = new Beam(this);
+    shootBeam(direction) {
+      var beam = new Beam(this, direction);
     }
 }

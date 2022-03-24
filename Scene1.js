@@ -14,8 +14,8 @@ class Scene1 extends Phaser.Scene {
             frameHeight: 24
         });
         this.load.spritesheet("beam", "assets/spritesheets/beam.png",{
-            frameWidth: 16,
-            frameHeight: 16
+            frameWidth: 11,
+            frameHeight: 11
         });
     }
 

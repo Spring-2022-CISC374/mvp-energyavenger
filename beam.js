@@ -1,8 +1,8 @@
 class Beam extends Phaser.GameObjects.Sprite{
-    constructor(scene){
+    constructor(scene, direction){
   
       var x = scene.player.x;
-      var y = scene.player.y - 16;
+      var y = scene.player.y;
   
       super(scene, x, y, "beam");
   
@@ -10,8 +10,20 @@ class Beam extends Phaser.GameObjects.Sprite{
   
       this.play("beam_anim");
       scene.physics.world.enableBody(this);
-      this.body.velocity.y = - 250;
-  
+
+      if(direction == 'UP'){
+        this.body.velocity.y = - 250;
+      }
+      else if(direction == 'DOWN'){
+        this.body.velocity.y = 250;
+      }
+      else if(direction == 'LEFT'){
+        this.body.velocity.x = - 250;
+      }
+      else if(direction == 'RIGHT'){
+        this.body.velocity.x = 250;
+      }
+
       scene.beams.add(this);
   
     }
