@@ -1,8 +1,5 @@
 var gameSettings = {
 	playerSpeed: 200,
-	enemySpeed: 300,
-	enemy1_arr: [],
-	enemy1_postions: []
 }
 
 var config = {
