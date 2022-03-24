@@ -7,7 +7,7 @@ class Scene2 extends Phaser.Scene {
 
     create(){
         this.physics.world.setBoundsCollision();
-        this.player = this.spawnPlayer()
+        this.player = new Player(this);
         this.enemy1Group = new Phaser.GameObjects.Group(this);
         this.beams = new Phaser.GameObjects.Group(this);
         var enemy1Count = Phaser.Math.Between(5, 8);
@@ -26,38 +26,8 @@ class Scene2 extends Phaser.Scene {
           this.enemy1Group.getChildren()[i].changeEnemySpeed();
           this.enemy1Group.getChildren()[i].moveEnemy();
         }
-        this.shootBeamManager()
+        this.player.shootBeamManager()
     }
-
-    shootBeamManager(){
-      let keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
-      let keyDown = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
-      let keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
-      let keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
-
-    
-       if(Phaser.Input.Keyboard.JustDown(keyUp)) {
-        // this.player.play("player_forward");
-        this.shootBeam("UP")
-       }
-       else if(Phaser.Input.Keyboard.JustDown(keyDown)) {
-        //  this.player.play("player_left");
-        this.shootBeam("DOWN")
-       } 
-       else if(Phaser.Input.Keyboard.JustDown(keyLeft)) {
-        //  this.player.play("player_backward");
-        this.shootBeam("LEFT")
-       } 
-       else if(Phaser.Input.Keyboard.JustDown(keyRight)) {
-        //  this.player.play("player_right");
-        this.shootBeam("RIGHT")
-       }
-    }
-
-    spawnPlayer(){
-      return new Player(this);
-    }
-
     hurtPlayer(){
       console.log("Player Hurt!")
     }
@@ -65,8 +35,5 @@ class Scene2 extends Phaser.Scene {
       projectile.destroy();
       enemy.destroy();
       console.log("Enemy Hit!")
-    }
-    shootBeam(direction) {
-      var beam = new Beam(this, direction);
     }
 }

@@ -43,5 +43,29 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         }
     }
 
+    shootBeamManager(){
+        let keyUp = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        let keyDown = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+        let keyLeft = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+        let keyRight = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+  
+         if(Phaser.Input.Keyboard.JustDown(keyUp)) {
+          // this.player.play("player_forward");
+          var beam = new Beam(this.scene, "UP");
+         }
+         else if(Phaser.Input.Keyboard.JustDown(keyDown)) {
+          //  this.player.play("player_left");
+          var beam = new Beam(this.scene, "DOWN");
+         } 
+         else if(Phaser.Input.Keyboard.JustDown(keyLeft)) {
+          //  this.player.play("player_backward");
+          var beam = new Beam(this.scene, "LEFT");
+         } 
+         else if(Phaser.Input.Keyboard.JustDown(keyRight)) {
+          //  this.player.play("player_right");
+          var beam = new Beam(this.scene, "RIGHT");
+         }
+      }
+
   }
   
