@@ -13,15 +13,16 @@ class Scene2 extends Phaser.Scene {
         //this.player.frame = 12;
         this.cursorKeys = this.input.keyboard.createCursorKeys();
         this.player.setInteractive();
+        this.player.body.setCollideWorldBounds(true)
         /*
         leftKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         rightKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         upKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         downKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         */
-        this.enemy = this.physics.add.sprite(config.width / 2 - 50, config.height / 2, "enemy");
-        // this.enemy.play("enemy_anim");
+        this.enemy = this.physics.add.sprite(config.width / 2 - 50, config.height / 2, "enemy1");
         this.enemy.setInteractive();
+        this.enemy.play("enemy1");
         this.enemy.setCollideWorldBounds(true);
         this.physics.world.setBoundsCollision();
     }
@@ -34,7 +35,7 @@ class Scene2 extends Phaser.Scene {
     movePlayerManager(){
 
         // prevents player from moving off screen
-        this.player.body.setCollideWorldBounds()
+        
 
         this.player.setVelocity(0);
 
@@ -92,7 +93,14 @@ class Scene2 extends Phaser.Scene {
     }
   
     moveEnemy(enemy) {
-        enemy.y += gameSettings.enemyY;
-        enemy.x += gameSettings.enemyX;
+      if(gameSettings.enemyY == 0 && gameSettings.enemyX == 0){
+        enemy.play("enemy1");
+        console.log('STAND')
+      }
+      else{
+        console.log('WALK')
+      }
+      enemy.y += gameSettings.enemyY;
+      enemy.x += gameSettings.enemyX;
     }
 }
