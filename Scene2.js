@@ -12,12 +12,20 @@ class Scene2 extends Phaser.Scene {
         this.player.setInteractive();
         this.player.body.setCollideWorldBounds(true);
         this.physics.world.setBoundsCollision();
-        this.enemy1Group = new Phaser.GameObjects.Group(this);
+        
 
+        this.enemy1Group = new Phaser.GameObjects.Group(this);
+        this.beams = new Phaser.GameObjects.Group(this);
         var enemy1Count = Phaser.Math.Between(3, 5);
         for(let i=0; i<enemy1Count; i++){
           this.enemy1Group.add(new Enemy1(this))
         }
+
+        this.physics.add.overlap(this.player, this.enemy1Group, this.hurtPlayer);
+        this.physics.add.overlap(this.beams, this.enemy1Group, this.hitEnemy, null, this);
+
+        this.spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
     }
 
     update(){
@@ -26,6 +34,10 @@ class Scene2 extends Phaser.Scene {
         for(let i=0; i<this.enemy1Group.getLength(); i++){
           this.enemy1Group.getChildren()[i].changeEnemySpeed();
           this.enemy1Group.getChildren()[i].moveEnemy();
+        }
+
+        if (Phaser.Input.Keyboard.JustDown(this.spacebar)) {
+          this.shootBeam();
         }
     }
     movePlayerManager(){
@@ -57,5 +69,17 @@ class Scene2 extends Phaser.Scene {
         if (keyShift.isDown){
           console.log('shift')
         }
+    }
+
+    hurtPlayer(){
+      console.log("Player Hurt!")
+    }
+    hitEnemy(projectile, enemy) {
+      projectile.destroy();
+      enemy.destroy();
+      console.log("Enemy Hit!")
+    }
+    shootBeam() {
+      var beam = new Beam(this);
     }
 }

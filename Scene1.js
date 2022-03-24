@@ -12,11 +12,11 @@ class Scene1 extends Phaser.Scene {
         this.load.spritesheet("enemy1", "assets/spritesheets/enemy1.png",{
             frameWidth: 24,
             frameHeight: 24
-          });
-        this.load.spritesheet("enemy1_stand", "assets/spritesheets/enemy1_stand.png",{
-            frameWidth: 24,
-            frameHeight: 24
-          });
+        });
+        this.load.spritesheet("beam", "assets/spritesheets/beam.png",{
+            frameWidth: 16,
+            frameHeight: 16
+        });
     }
 
     create(){
@@ -65,7 +65,14 @@ class Scene1 extends Phaser.Scene {
             
             repeat: -1,
             frameRate: 6
-        })
+        });
+
+        this.anims.create({
+            key: "beam_anim",
+            frames: this.anims.generateFrameNumbers("beam"),
+            frameRate: 20,
+            repeat: -1
+          });
 
 
     }
