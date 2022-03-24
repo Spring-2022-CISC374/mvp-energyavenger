@@ -1,3 +1,5 @@
+// import Enemy1 from './enemy1.js';
+
 class Scene2 extends Phaser.Scene {
     constructor() {
         super("playGame");
@@ -9,17 +11,8 @@ class Scene2 extends Phaser.Scene {
         //     fill: "yellow"
         // });
 
-        
-        var enemy1_count = Phaser.Math.Between(3, 5);
-        for(let i=0; i<enemy1_count; i++){
-          gameSettings.enemy1_arr[i] = this.physics.add.sprite(config.width / 2 - 50, config.height / 2, "enemy1");
-          gameSettings.enemy1_arr[i].setInteractive();
-          gameSettings.enemy1_arr[i].body.setCollideWorldBounds(true);
-          gameSettings.enemy1_arr[i].play('enemy1');
-          gameSettings.enemy1_postions.push([1, 1]);
-        }
-
         this.player = this.physics.add.sprite(config.width / 2 -8, config.height - 64, "player");
+
         //this.player.frame = 12;
         this.cursorKeys = this.input.keyboard.createCursorKeys();
         this.player.setInteractive();
@@ -32,15 +25,29 @@ class Scene2 extends Phaser.Scene {
         */
         this.physics.world.setBoundsCollision();
 
+        this.enemy1Group = new Phaser.GameObjects.Group(this)
+        var enemy1Count = Phaser.Math.Between(3, 5);
+        for(let i=0; i<enemy1Count; i++){
+          this.enemy1Group.add(new Enemy1(this))
+        }
     }
 
     update(){
         this.movePlayerManager();
-
-        for(let i=0; i<gameSettings.enemy1_arr.length; i++){
-          this.changeEnemySpeed(i);
-          this.moveEnemy(gameSettings.enemy1_arr[i], i);
+        
+        for(let i=0; i<this.enemy1Group.getLength(); i++){
+          this.enemy1Group.getChildren()[i].changeEnemySpeed();
+          this.enemy1Group.getChildren()[i].moveEnemy();
         }
+
+
+        // this.test.changeEnemySpeed();
+        // this.test.moveEnemy();
+
+        // for(let i=0; i<gameSettings.enemy1_arr.length; i++){
+        //   this.changeEnemySpeed(i);
+        //   this.moveEnemy(gameSettings.enemy1_arr[i], i);
+        // }
     }
     movePlayerManager(){
 
@@ -87,26 +94,5 @@ class Scene2 extends Phaser.Scene {
         if (this.cursorKeys.shift.isDown){
           //this.player.play("player_interact")
         }
-
-
-    }
-
-    changeEnemySpeed(index){
-      var changeSpeed = Phaser.Math.Between(1, 50);
-      var randomX = Phaser.Math.Between(-1, 1);
-      var randomY = Phaser.Math.Between(-1, 1);
-  
-      if(changeSpeed == 3){
-        gameSettings.enemy1_postions[index][0] = randomX;
-        gameSettings.enemy1_postions[index][1] = randomY; 
-      }
-    }
-  
-    moveEnemy(enemy, index) {
-      if(gameSettings.enemy1_postions[index][0] == 0 && gameSettings.enemy1_postions[index][1] == 0){
-        enemy.play("enemy1");
-      }
-      enemy.x += gameSettings.enemy1_postions[index][0];
-      enemy.y += gameSettings.enemy1_postions[index][1];
     }
 }
