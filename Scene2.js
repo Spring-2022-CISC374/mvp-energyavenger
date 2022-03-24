@@ -16,7 +16,7 @@ class Scene2 extends Phaser.Scene {
 
         this.enemy1Group = new Phaser.GameObjects.Group(this);
         this.beams = new Phaser.GameObjects.Group(this);
-        var enemy1Count = Phaser.Math.Between(3, 5);
+        var enemy1Count = Phaser.Math.Between(5, 8);
         for(let i=0; i<enemy1Count; i++){
           this.enemy1Group.add(new Enemy1(this))
         }
@@ -54,20 +54,19 @@ class Scene2 extends Phaser.Scene {
         let keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         let keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
-        
         if(keyW.isDown) {
          this.player.setVelocityY(-gameSettings.playerSpeed);
          this.player.play("player_forward");
         }
-        else if(keyA.isDown) {
+        if(keyA.isDown) {
           this.player.setVelocityX(-gameSettings.playerSpeed);
           this.player.play("player_left");
         } 
-        else if(keyS.isDown) {
+        if(keyS.isDown) {
           this.player.setVelocityY(gameSettings.playerSpeed);
           this.player.play("player_backward");
         } 
-        else if(keyD.isDown) {
+        if(keyD.isDown) {
           this.player.setVelocityX(gameSettings.playerSpeed);
           this.player.play("player_right");
         }
