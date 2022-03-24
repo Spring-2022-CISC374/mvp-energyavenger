@@ -16,7 +16,7 @@ class Scene2 extends Phaser.Scene {
           gameSettings.enemy1_arr[i].setInteractive();
           gameSettings.enemy1_arr[i].body.setCollideWorldBounds(true);
           gameSettings.enemy1_arr[i].play('enemy1');
-          gameSettings.enemy1_postions.push([1, 1])
+          gameSettings.enemy1_postions.push([1, 1]);
         }
 
         this.player = this.physics.add.sprite(config.width / 2 -8, config.height - 64, "player");
