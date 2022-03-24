@@ -6,7 +6,7 @@ class Enemy1 extends Phaser.GameObjects.Sprite{
         super(scene, spawnX, spawnY, "enemy1");
         scene.add.existing(this);
         scene.physics.world.enableBody(this);
-        scene.enemy1Group.add(this)
+        scene.enemy1Group.add(this);
         this.speed_x = 1;
         this.speed_y = 1;
         this.play("enemy1");
