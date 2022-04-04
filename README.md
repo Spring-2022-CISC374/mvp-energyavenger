@@ -4,5 +4,4 @@
 ### Tyler Yates
 > implemented player collision on the borders of game and added shift key and interact parts
 ### Nolan Spillane
-> implemented a basic enemy, with random movements
-> implemented shooting projectiles that eliminate enemies
+> implemented a basic enemy with random movements, and shooting projectiles that eliminate enemies
