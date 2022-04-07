@@ -2,10 +2,10 @@
   "name": "mvp-energyavenger",
   "version": "0.0.2",
   "description": "Play as a character that wants to conserve energy and fight off evil monsters.",
-  "homepage": "https://github.com/Spring-2022-CISC374/mvp-energyavenger",
+  "homepage": "https://github.com/Spring-2022-CISC374/mvp-energyavenger#readme",
   "main": "index.js",
   "game": {
-    "url": "github-hosting-directions",
+    "url": "mvp-energyavenger",
     "shortName": "Ed Game",
     "name": "Energy Avenger"
   },
@@ -37,8 +37,8 @@
   ],
   "template": {
     "name": "educational-phaser-game-template",
-    "url": "https://github.com/acbart/educational-phaser-game-template",
-    "author": "Austin Cory Bart (https://github.com/acbart)"
+    "url": "https://github.com/Spring-2022-CISC374/mvp-energyavenger",
+    "author": "Ryan Allarey"
   },
   "engines": {
     "node": ">=8.0.0"
