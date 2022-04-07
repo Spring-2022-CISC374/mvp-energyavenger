@@ -17,11 +17,15 @@ class Scene1 extends Phaser.Scene {
             frameWidth: 11,
             frameHeight: 11
         });
+
+        this.load.image("options_button", "assets/images/options_button.png");
+
+        this.load.image("play_button", "assets/images/play_button.png");
     }
 
     create(){
         this.add.text(20, 20, "loading game ...");
-        this.scene.start("playGame");
+        this.scene.start("main-menu");
         
         this.anims.create({
             key: "enemy1",
