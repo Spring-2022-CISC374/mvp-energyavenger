@@ -2,7 +2,7 @@
   "name": "mvp-energyavenger",
   "version": "0.0.2",
   "description": "Play as a character that wants to conserve energy and fight off evil monsters.",
-  "homepage": "https://github.com/Spring-2022-CISC374/mvp-energyavenger#readme",
+  "homepage": "https://github.com/Spring-2022-CISC374/mvp-energyavenger",
   "main": "index.js",
   "game": {
     "url": "mvp-energyavenger",
@@ -12,7 +12,7 @@
   "contributors": ["Ryan Allarey rallarey@udel.edu,"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Spring-2022-CISC374/mvp-energyavenger"
+    "url": "https://github.com/Spring-2022-CISC374/mvp-energyavenger.git"
   },
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js",

@@ -36,7 +36,7 @@ module.exports = {
   plugins: [
       new HtmlWebpackPlugin({ gameName: package.game.name, template: 'index.html', inject: false }),
     new CopyWebpackPlugin([
-	{ from: './assets', to: 'assets' },
+	{ from: 'assets', to: 'assets' },
 	{ from: 'config/pwa', to: '' },
 	{ from: 'assets/icons/favicon.ico', to: '' },
 	{ from: '*.js', to: ''}	
