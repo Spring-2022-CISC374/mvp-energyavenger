@@ -23,20 +23,28 @@ class Player extends Phaser.Physics.Arcade.Sprite{
 
         if(keyW.isDown) {
          this.setVelocityY(-gameSettings.playerSpeed);
-         this.play("player_forward");
+         this.play("up-walk", true);
         }
-        if(keyA.isDown) {
+        else if(keyA.isDown) {
           this.setVelocityX(-gameSettings.playerSpeed);
-          this.play("player_left");
+          this.play("left-walk",true);
         } 
-        if(keyS.isDown) {
+        else if(keyS.isDown) {
           this.setVelocityY(gameSettings.playerSpeed);
-          this.play("player_backward");
+          this.play("down-walk",true);
         } 
-        if(keyD.isDown) {
+        else if(keyD.isDown) {
           this.setVelocityX(gameSettings.playerSpeed);
-          this.play("player_right");
+          this.play("right-walk", true);
         }
+
+        /*else {
+          this.setVelocityX(0);
+          const key = this.player.anims.currentAnim.Key
+          const parts = key.split('-');
+          const direction = parts[0];
+          this.player.play('${direction}-idle');
+        }*/
         if (keyShift.isDown){
           console.log('shift')
         }

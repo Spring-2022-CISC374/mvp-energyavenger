@@ -36,33 +36,53 @@ class Scene1 extends Phaser.Scene {
 
         // player movement animations
         this.anims.create({
-            key: "player_right",
+            key: "right-walk",
             frames: this.anims.generateFrameNames("player", { frames: [3,7,11,15] }),
             repeat: -1,
             frameRate: 6
         });
-
+        
         this.anims.create({
-            key: "player_left",
+            key: "right-idle",
+            frames: this.anims.generateFrameNames("player", { frame: [3]}),
+        });
+        
+        this.anims.create({
+            key: "left-walk",
             frames: this.anims.generateFrameNames("player", { frames: [1,5,9,13] }),
             repeat: -1,
             frameRate: 6
         });
-
+        
         this.anims.create({
-            key: "player_forward",
+            key: "left-idle",
+            frames: this.anims.generateFrameNames("player", { frame: [1]}),
+        });
+        
+        this.anims.create({
+            key: "up-walk",
             frames: this.anims.generateFrameNames("player", { frames: [2,6,10,14] }),
             repeat: -1,
             frameRate: 6
         });
-
+        
         this.anims.create({
-            key: "player_backward",
+            key: "up-idle",
+            frames: this.anims.generateFrameNames("player", { frame: [2]}),
+        });
+        
+        this.anims.create({
+            key: "down-walk",
             frames: this.anims.generateFrameNames("player", { frames: [0,4,8,12] }),
             repeat: -1,
             frameRate: 6
         });
-
+        
+        this.anims.create({
+            key: "down-idle",
+            frames: this.anims.generateFrameNames("player", { frame: [0]}),
+        });
+        
         // interaction animations
         this.anims.create({
             key: "player_interact",
