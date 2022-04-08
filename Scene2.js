@@ -69,7 +69,7 @@ class Scene2 extends Phaser.Scene {
 
     }
     hurtPlayer(){
-      gameSettings.health = Phaser.Math.Clamp(gameSettings.health - 10, 0,100); 
+      gameSettings.health = Phaser.Math.Clamp(gameSettings.health - .5, 0,100); 
       //setHealthBar(gameSettings.health);
       console.log(gameSettings.health);
       console.log("Player Hurt!");
