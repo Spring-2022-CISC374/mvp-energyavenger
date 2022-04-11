@@ -21,6 +21,7 @@ class Scene1 extends Phaser.Scene {
         this.load.image("options_button", "assets/images/options_button.png");
 
         this.load.image("play_button", "assets/images/play_button.png");
+        this.load.image("retry_button", "assets/images/retry.png");
     }
 
     create(){
