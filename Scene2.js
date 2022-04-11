@@ -61,15 +61,15 @@ class Scene2 extends Phaser.Scene {
         console.log(gameSettings.health);
         this.setHealthBar(gameSettings.health);
         if (gameSettings.health == 0){
-          this.add.text((this.game.renderer.width / 2)- 50, this.game.renderer.height / 2, "Game over", {
-            align: 'left',
-            fontSize: '24px'
-          });
+          this.scene.start("end-screen");
+        }
+        if (this.enemy1Group.getLength()== 0){
+          this.scene.start("win-screen");
         }
 
     }
     hurtPlayer(){
-      gameSettings.health = Phaser.Math.Clamp(gameSettings.health - .5, 0,100); 
+      gameSettings.health = Phaser.Math.Clamp(gameSettings.health - 2, 0,100); 
       //setHealthBar(gameSettings.health);
       console.log(gameSettings.health);
       console.log("Player Hurt!");
