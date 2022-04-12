@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "16ae19ba30d5bcd75968f96f3156eaa8",
+    "revision": "be1b7fbcfb76e50c7190198111c27fd2",
     "url": "/mvp-energyavenger/devScene1.js"
   },
   {
@@ -18,6 +18,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "54daf94985d6510f2a6d8c322b93bebe",
     "url": "/mvp-energyavenger/devassets/images/play_button.png"
+  },
+  {
+    "revision": "80bd5beda69211a2cfedde67ac62094e",
+    "url": "/mvp-energyavenger/devassets/images/retry.png"
   },
   {
     "revision": "6cfc13d11cbce7205ff35fee64e839f6",
@@ -44,7 +48,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/devbeam.js"
   },
   {
-    "revision": "fd26c0c840f19b6730c14cf24a769c8a",
+    "revision": "062b5daf8d92d91933f5fdac2783688c",
     "url": "/mvp-energyavenger/devendScreen.js"
   },
   {
@@ -92,7 +96,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/devswitch.js"
   },
   {
-    "revision": "41fad745fd9e91080d745a5085954fe7",
+    "revision": "111f03b074923d9dc1ef6951e66829d0",
     "url": "/mvp-energyavenger/devvictoryScreen.js"
   }
 ]);
