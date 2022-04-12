@@ -48,7 +48,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/devbeam.js"
   },
   {
-    "revision": "062b5daf8d92d91933f5fdac2783688c",
+    "revision": "701fe154e83c8bfe6dea736be9e48a01",
     "url": "/mvp-energyavenger/devendScreen.js"
   },
   {
@@ -96,7 +96,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/devswitch.js"
   },
   {
-    "revision": "111f03b074923d9dc1ef6951e66829d0",
+    "revision": "a69b570036d36fc42b81e965f4b262ed",
     "url": "/mvp-energyavenger/devvictoryScreen.js"
   }
 ]);

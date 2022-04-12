@@ -16,7 +16,8 @@ class endScreen extends Phaser.Scene {
         retryButton.setScale(.2);
         retryButton.setInteractive();
         retryButton.on('pointerover', () => { console.log('pointerover'); });
-        retryButton.on('pointerdown', () => this.scene.switch("main-menu")); 
+        gameSettings.health = 100;
+        retryButton.on('pointerdown', () => this.scene.start("main-menu")); 
     }
 
     update(){
