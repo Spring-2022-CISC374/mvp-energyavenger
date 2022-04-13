@@ -36,6 +36,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/devassets/spritesheets/player2.png"
   },
   {
+    "revision": "aeece55eb463bc19ddbc1e1bb07f26eb",
+    "url": "/mvp-energyavenger/devbackground.js"
+  },
+  {
     "revision": "6e89258d5e7e77976b744e3c67628d48",
     "url": "/mvp-energyavenger/devbeam.js"
   },
