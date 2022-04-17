@@ -24,7 +24,11 @@ class Scene2 extends Phaser.Scene {
       for(let i=0; i<enemy1Count; i++){
         this.enemy1Group.add(new Enemy1(this))
       }
-
+      var lamp = this.add.sprite(300, 300, 'lamp');
+      lamp.setPipeline('Light2D');
+      lamp.setScale(.1);
+      var light  = this.lights.addLight(300,250,150);
+      this.lights.enable().setAmbientColor(0xffffff);
       this.physics.add.overlap(this.player, this.enemy1Group, this.hurtPlayer);
       console.log(gameSettings.health);
       //this.physics.add.overlap(this.player, this.enemy1Group, this.setHealthBar(gameSettings.health));
