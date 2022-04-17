@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/devScene1.js"
   },
   {
-    "revision": "b24752252930e5e4c687e5c412d50884",
+    "revision": "49e250eb0534468b4daa65f2c56a11b4",
     "url": "/mvp-energyavenger/devScene2.js"
   },
   {
@@ -100,7 +100,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/devphaser.min.js"
   },
   {
-    "revision": "3ea0192a6a1b3e9ec25bf19c76b95bba",
+    "revision": "257adbc8140935f6eb8cf9215476cabe",
     "url": "/mvp-energyavenger/devplayer.js"
   },
   {

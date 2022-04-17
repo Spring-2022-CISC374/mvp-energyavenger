@@ -1,4 +1,4 @@
-importScripts("/mvp-energyavenger/devprecache-manifest.52e5b5470e74f8a7369ba37774973fc7.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/mvp-energyavenger/devprecache-manifest.a9af1aa3c0afb2074c6d923bb3725934.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 /**
  * You should only modify this, if you know what you are doing.

@@ -48,7 +48,9 @@ class Scene2 extends Phaser.Scene {
     console.log(gameSettings.health);
     //this.physics.add.overlap(this.player, this.enemy1Group, this.setHealthBar(gameSettings.health));
     this.physics.add.overlap(this.beams, this.enemy1Group, this.hitEnemy, null, this);
+
     }
+
 
    
 
@@ -89,11 +91,12 @@ class Scene2 extends Phaser.Scene {
         this.lights.setAmbientColor(gameSettings.color);
 
     }
-    hurtPlayer(){
+    hurtPlayer(player){
       gameSettings.health = Phaser.Math.Clamp(gameSettings.health - 2, 0,100); 
       //setHealthBar(gameSettings.health);
       console.log(gameSettings.health);
       console.log("Player Hurt!");
+      player.tint = 0xff0000;
     }
 
     hitEnemy(projectile, enemy) {
@@ -101,9 +104,10 @@ class Scene2 extends Phaser.Scene {
       enemy.destroy();
       console.log("Enemy Hit!")
     }
-    test(){
+    test(player){
       console.log("testing");
       gameSettings.color = 0x000000;
+      player.clearTint();
       // updates a global variable, only works with a single lamp, kinda bad solution, but works
     }
 }
