@@ -1,6 +1,7 @@
 var gameSettings = {
 	playerSpeed: 200,
-	health: 100
+	health: 100,
+	color: 0xffffff
 }
 
 var config = {

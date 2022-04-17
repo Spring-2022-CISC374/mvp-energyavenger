@@ -40,7 +40,7 @@ class Scene2 extends Phaser.Scene {
     this.lamp.setScale(.1);
     */
     var light  = this.lights.addLight(300,250,150);
-    this.lights.enable().setAmbientColor(0xffffff);
+    this.lights.enable().setAmbientColor(gameSettings.color);
     
     this.physics.add.overlap(this.player, this.lamp, this.test);
 
@@ -86,6 +86,7 @@ class Scene2 extends Phaser.Scene {
         if (this.enemy1Group.getLength()== 0){
           this.scene.start("win-screen");
         }
+        this.lights.setAmbientColor(gameSettings.color);
 
     }
     hurtPlayer(){
@@ -102,7 +103,7 @@ class Scene2 extends Phaser.Scene {
     }
     test(){
       console.log("testing");
-      //this.lights.setAmbientColor(0x000000);
+      gameSettings.color = 0x000000;
       // getting undefined idk why can't change color 
     }
 }
