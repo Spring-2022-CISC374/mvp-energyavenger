@@ -20,21 +20,37 @@ class Scene2 extends Phaser.Scene {
       this.player = new Player(this);
       this.enemy1Group = new Phaser.GameObjects.Group(this);
       this.beams = new Phaser.GameObjects.Group(this);
+      this.lamp = new Lamp(this);
       var enemy1Count = Phaser.Math.Between(5, 8);
       for(let i=0; i<enemy1Count; i++){
         this.enemy1Group.add(new Enemy1(this))
       }
+      /*
+      var lampCount = Phaser.Math.Between(5,8);
+      for(let i = 0; i < lampCount; i++){
+        this.lampGroup.add(new lamp(this))
+      }
+      */
+      /*
       var lamp = this.add.sprite(300, 300, 'lamp');
       lamp.setPipeline('Light2D');
       lamp.setScale(.1);
-      var light  = this.lights.addLight(300,250,150);
-      this.lights.enable().setAmbientColor(0xffffff);
-      this.physics.add.overlap(this.player, this.enemy1Group, this.hurtPlayer);
-      console.log(gameSettings.health);
-      //this.physics.add.overlap(this.player, this.enemy1Group, this.setHealthBar(gameSettings.health));
-      this.physics.add.overlap(this.beams, this.enemy1Group, this.hitEnemy, null, this);
+      
+    this.lamp.setPipeline('Light2D');
+    this.lamp.setScale(.1);
+    */
+    var light  = this.lights.addLight(300,250,150);
+    this.lights.enable().setAmbientColor(0xffffff);
+    
+    this.physics.add.overlap(this.player, this.lamp, this.test);
+
+    this.physics.add.overlap(this.player, this.enemy1Group, this.hurtPlayer);
+    console.log(gameSettings.health);
+    //this.physics.add.overlap(this.player, this.enemy1Group, this.setHealthBar(gameSettings.health));
+    this.physics.add.overlap(this.beams, this.enemy1Group, this.hitEnemy, null, this);
     }
 
+   
 
     setHealthBar(value){
       const width = 200;
@@ -83,5 +99,10 @@ class Scene2 extends Phaser.Scene {
       projectile.destroy();
       enemy.destroy();
       console.log("Enemy Hit!")
+    }
+    test(){
+      console.log("testing");
+      //this.lights.setAmbientColor(0x000000);
+      // getting undefined idk why can't change color 
     }
 }
