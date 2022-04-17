@@ -12,6 +12,7 @@ class Player extends Phaser.Physics.Arcade.Sprite{
     scene.add.existing(this);
     this.setInteractive();
     this.body.setCollideWorldBounds(true);
+    this.tint;
 
 
   }
@@ -85,7 +86,9 @@ class Player extends Phaser.Physics.Arcade.Sprite{
       console.log("Player Hurt!");
     }
     */
+   
+   }
 
 
-  }
+
   
