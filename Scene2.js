@@ -104,6 +104,6 @@ class Scene2 extends Phaser.Scene {
     test(){
       console.log("testing");
       gameSettings.color = 0x000000;
-      // getting undefined idk why can't change color 
+      // updates a global variable, only works with a single lamp, kinda bad solution, but works
     }
 }
