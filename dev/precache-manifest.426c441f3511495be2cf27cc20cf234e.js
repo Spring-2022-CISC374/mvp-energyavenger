@@ -72,15 +72,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/devfavicon.ico"
   },
   {
-    "revision": "e7802a0eea2cc1671a58c6eb1fa859b0",
+    "revision": "20175610138812d3bbafdabbd34f917d",
     "url": "/mvp-energyavenger/devgame.js"
   },
   {
-    "revision": "4ec6f6c8fe1cdd4a413b",
-    "url": "/mvp-energyavenger/devgen.main.57b2104ea36262bfa01c.bundle.js"
+    "revision": "1057f8d500495a77b02b",
+    "url": "/mvp-energyavenger/devgen.main.494a3a86c8208955497d.bundle.js"
   },
   {
-    "revision": "7b0610143050314a5e141065d519d032",
+    "revision": "13ef3cebf4e0f2529022cb86f35f1790",
     "url": "/mvp-energyavenger/devindex.html"
   },
   {
@@ -88,12 +88,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/devlamp.js"
   },
   {
-    "revision": "8a934669d0d8c660d7a32d9e28fa60dd",
+    "revision": "76706c4aa0c1ab19f96aca43a4e0b5cd",
     "url": "/mvp-energyavenger/devmainMenu.js"
   },
   {
     "revision": "d1f5c8aca62fa9b256f467a79dfecfa7",
     "url": "/mvp-energyavenger/devmanifest.json"
+  },
+  {
+    "revision": "aa5461ee516534e772782d625b3a55cd",
+    "url": "/mvp-energyavenger/devoptionsScene.js"
   },
   {
     "revision": "5c62495a52b57e3b002d8dca78ffabc9",

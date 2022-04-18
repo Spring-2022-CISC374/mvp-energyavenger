@@ -21,6 +21,8 @@ class mainMenu extends Phaser.Scene {
 
         optionButton.setInteractive();
         optionButton.on('pointerover', () => { console.log('pointerover'); });
+        optionButton.on('pointerdown', () => {this.scene.start("options-scene");
+    });
     }
 
 
