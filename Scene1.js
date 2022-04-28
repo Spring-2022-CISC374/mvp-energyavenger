@@ -4,6 +4,7 @@ class Scene1 extends Phaser.Scene {
     }
 
     preload(){
+        this.load.image("background", "assets/images/map.png");
         this.load.spritesheet("player", "assets/spritesheets/player2.png",{
             frameWidth: 48,
             frameHeight: 48,
@@ -17,7 +18,10 @@ class Scene1 extends Phaser.Scene {
             frameWidth: 11,
             frameHeight: 11
         });
-
+        this.load.spritesheet("button", "assets/spritesheets/button.png",{
+            frameWidth: 44,
+            frameHeight: 53
+        });
         this.load.image("options_button", "assets/images/options_button.png");
 
         this.load.image("play_button", "assets/images/play_button.png");

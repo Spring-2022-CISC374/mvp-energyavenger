@@ -7,14 +7,14 @@ class Player extends Phaser.Physics.Arcade.Sprite{
     var spawnX = config.width / 2 -8;
     var spawnY = config.height - 64;
     super(scene, spawnX, spawnY, "player");
-    scene.physics.add.existing(this);
+    // scene.physics.add.existing(this);
     scene.physics.world.enableBody(this);
     scene.add.existing(this);
-    this.setInteractive();
+    // this.setInteractive();
+    // this.body.setEnable();
+    // this.body.setImmovable();
     this.body.setCollideWorldBounds(true);
-    this.tint;
-
-
+    // this.tint;
   }
 
   movePlayerManager(){

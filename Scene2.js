@@ -9,7 +9,7 @@ class Scene2 extends Phaser.Scene {
     }
 
     create(){
-
+      this.background = this.add.tileSprite(640, 360, config.width, config.height, "background");
       this.graphics = this.add.graphics();
       this.setHealthBar(gameSettings.health);
       this.add.text(10, 35, "Player health", {
@@ -20,11 +20,17 @@ class Scene2 extends Phaser.Scene {
       this.player = new Player(this);
       this.enemy1Group = new Phaser.GameObjects.Group(this);
       this.beams = new Phaser.GameObjects.Group(this);
-      this.lamp = new Lamp(this);
+      // this.lamp = new Lamp(this);
+      this.button = new Button(this);
+
+      this.physics.add.collider(this.player, this.button);
+
       var enemy1Count = Phaser.Math.Between(5, 8);
       for(let i=0; i<enemy1Count; i++){
         this.enemy1Group.add(new Enemy1(this))
       }
+      this.physics.add.collider(this.player, this.button, this.enemy1Group, this.beams);
+
       /*
       var lampCount = Phaser.Math.Between(5,8);
       for(let i = 0; i < lampCount; i++){
@@ -39,15 +45,16 @@ class Scene2 extends Phaser.Scene {
     this.lamp.setPipeline('Light2D');
     this.lamp.setScale(.1);
     */
-    var light  = this.lights.addLight(300,250,150);
-    this.lights.enable().setAmbientColor(gameSettings.color);
+    // var light  = this.lights.addLight(300,250,150);
+    // this.lights.enable().setAmbientColor(gameSettings.color);
     
-    this.physics.add.overlap(this.player, this.lamp, this.test);
+    // this.physics.add.overlap(this.player, this.lamp, this.test);
 
     this.physics.add.overlap(this.player, this.enemy1Group, this.hurtPlayer);
     console.log(gameSettings.health);
     //this.physics.add.overlap(this.player, this.enemy1Group, this.setHealthBar(gameSettings.health));
-    this.physics.add.overlap(this.beams, this.enemy1Group, this.hitEnemy, null, this);
+    this.physics.add.overlap(this.beams, this.enemy1Group, this.shootEnemy, null, this);
+    this.physics.add.overlap(this.beams, this.button, this.shootButton, null, this);
 
     }
 
@@ -88,7 +95,7 @@ class Scene2 extends Phaser.Scene {
         if (this.enemy1Group.getLength()== 0){
           this.scene.start("win-screen");
         }
-        this.lights.setAmbientColor(gameSettings.color);
+        // this.lights.setAmbientColor(gameSettings.color);
 
     }
     hurtPlayer(player){
@@ -99,11 +106,16 @@ class Scene2 extends Phaser.Scene {
       player.tint = 0xff0000;
     }
 
-    hitEnemy(projectile, enemy) {
+    shootEnemy(projectile, enemy) {
       projectile.destroy();
       enemy.destroy();
       console.log("Enemy Hit!")
     }
+
+    shootButton(projectile) {
+      projectile.destroy();
+    }
+
     test(player){
       console.log("testing");
       gameSettings.color = 0x000000;
