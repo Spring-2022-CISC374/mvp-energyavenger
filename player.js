@@ -30,15 +30,15 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         this.setVelocityY(-gameSettings.playerSpeed);
         this.play("up-walk", true);
       }
-      else if(keyA.isDown) {
+      if(keyA.isDown) {
         this.setVelocityX(-gameSettings.playerSpeed);
         this.play("left-walk",true);
       } 
-      else if(keyS.isDown) {
+      if(keyS.isDown) {
         this.setVelocityY(gameSettings.playerSpeed);
         this.play("down-walk",true);
       } 
-      else if(keyD.isDown) {
+      if(keyD.isDown) {
         this.setVelocityX(gameSettings.playerSpeed);
         this.play("right-walk", true);
       }
