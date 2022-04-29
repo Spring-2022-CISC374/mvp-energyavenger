@@ -103,7 +103,7 @@ class Scene2 extends Phaser.Scene {
       //setHealthBar(gameSettings.health);
       console.log(gameSettings.health);
       console.log("Player Hurt!");
-      player.tint = 0xff0000;
+      //player.tint = 0xff0000;
     }
 
     shootEnemy(projectile, enemy) {
