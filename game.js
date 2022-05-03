@@ -8,7 +8,7 @@ var config = {
 	width: 1280,
 	height: 720,
 	backgroundColor: 0x000000,
-	scene: [Scene1, mainMenu, Scene2, endScreen, victoryScreen, optionsScene],
+	scene: [Scene1, mainMenu, Scene2, endScreen, victoryScreen, optionsScene, instructionScreen],
 	pixelArt: true,
 	physics: {
 		default: "arcade",
