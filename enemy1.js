@@ -12,6 +12,7 @@ class Enemy1 extends Phaser.GameObjects.Sprite{
         this.play("enemy1");
         this.body.setCollideWorldBounds(true);
 
+
     }
 
     changeEnemySpeed(){

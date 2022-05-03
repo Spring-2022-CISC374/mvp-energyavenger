@@ -1,4 +1,3 @@
-// import Enemy1 from './enemy1.js';
 
 class Scene2 extends Phaser.Scene {
 
@@ -11,11 +10,11 @@ class Scene2 extends Phaser.Scene {
     create(){
       this.background = this.add.tileSprite(640, 360, config.width, config.height, "background");
       this.graphics = this.add.graphics();
-      this.setHealthBar(gameSettings.health);
-      this.add.text(10, 35, "Player health", {
+      this.add.text(18, 15, "Player Health", {
         fontSize: '24px'
       });
-
+      this.setHealthBar(gameSettings.health);
+      
       this.physics.world.setBoundsCollision();
       this.player = new Player(this);
       this.enemy1Group = new Phaser.GameObjects.Group(this);
@@ -25,11 +24,14 @@ class Scene2 extends Phaser.Scene {
 
       this.physics.add.collider(this.player, this.button);
 
+
       var enemy1Count = Phaser.Math.Between(5, 8);
       for(let i=0; i<enemy1Count; i++){
         this.enemy1Group.add(new Enemy1(this))
       }
-      this.physics.add.collider(this.player, this.button, this.enemy1Group, this.beams);
+      this.physics.add.collider(this.enemy1Group, this.button);
+
+
 
       /*
       var lampCount = Phaser.Math.Between(5,8);
@@ -50,27 +52,23 @@ class Scene2 extends Phaser.Scene {
     
     // this.physics.add.overlap(this.player, this.lamp, this.test);
 
-    this.physics.add.overlap(this.player, this.enemy1Group, this.hurtPlayer);
-    console.log(gameSettings.health);
+    this.physics.add.collider(this.player, this.enemy1Group, this.hurtPlayer);
     //this.physics.add.overlap(this.player, this.enemy1Group, this.setHealthBar(gameSettings.health));
     this.physics.add.overlap(this.beams, this.enemy1Group, this.shootEnemy, null, this);
     this.physics.add.overlap(this.beams, this.button, this.shootButton, null, this);
 
     }
 
-
-   
-
     setHealthBar(value){
       const width = 200;
       const percent = Phaser.Math.Clamp(value, 0, 100) / 100;
       this.graphics.clear();
       this.graphics.fillStyle(0x808080);
-      this.graphics.fillRoundedRect(10, 10, width, 20, 5);
+      this.graphics.fillRoundedRect(20, 40, width, 20, 5);
 
       if (percent > 0){
         this.graphics.fillStyle(0x00ff00);
-        this.graphics.fillRoundedRect(10, 10, width * percent, 20, 5);
+        this.graphics.fillRoundedRect(20, 40, width * percent, 20, 5);
       }
     }
 
@@ -87,7 +85,6 @@ class Scene2 extends Phaser.Scene {
           this.beams.getChildren()[i].destroyBeam();
         }
 
-        console.log(gameSettings.health);
         this.setHealthBar(gameSettings.health);
         if (gameSettings.health == 0){
           this.scene.start("end-screen");
