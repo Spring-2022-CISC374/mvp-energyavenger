@@ -86,6 +86,10 @@ class Scene2 extends Phaser.Scene {
           this.beams.getChildren()[i].destroyBeam();
         }
 
+<<<<<<< HEAD
+=======
+        
+>>>>>>> cd01938a59de2f9f0c7b32b79d6c6a8e36142623
         this.setHealthBar(gameSettings.health);
         if (gameSettings.health == 0){
           this.scene.start("end-screen");

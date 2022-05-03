@@ -1,7 +1,8 @@
 var gameSettings = {
 	playerSpeed: 200,
 	health: 100,
-	color: 0xffffff
+	color: 0xffffff,
+	direction: "UP"
 }
 
 var config = {
