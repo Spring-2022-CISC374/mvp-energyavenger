@@ -8,6 +8,7 @@ class Scene2 extends Phaser.Scene {
     }
 
     create(){
+
       this.background = this.add.tileSprite(640, 360, config.width, config.height, "background");
       this.graphics = this.add.graphics();
       this.add.text(18, 15, "Player Health", {

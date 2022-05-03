@@ -9,7 +9,6 @@ class mainMenu extends Phaser.Scene {
 
     create(){
 
-
         this.add.text(config.width / 3, config.height / 3.5, "Energy Avenger", {
             font: "Bold 65px Arial",
             fontFamily: "PressStart2P-Regular",
