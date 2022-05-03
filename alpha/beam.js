@@ -12,6 +12,7 @@ class Beam extends Phaser.GameObjects.Sprite{
       scene.physics.world.enableBody(this);
       // this.body.setEnable();
 
+      console.log(direction);
 
       if(direction == 'UP'){
         this.body.velocity.y = - 250;

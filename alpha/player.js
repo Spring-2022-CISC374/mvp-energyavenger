@@ -26,21 +26,34 @@ class Player extends Phaser.Physics.Arcade.Sprite{
       let keyD = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
       let keyShift = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
 
-      if(keyW.isDown) {
+      let keyUp = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+      let keyDown = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+      let keyLeft = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+      let keyRight = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+
+      if(keyW.isDown || keyUp.isDown) {
         this.setVelocityY(-gameSettings.playerSpeed);
         this.play("up-walk", true);
-      }
-      if(keyA.isDown) {
+        gameSettings.direction = "UP";
+        console.log(gameSettings.direction);
+      } 
+      if(keyA.isDown || keyLeft.isDown) {
         this.setVelocityX(-gameSettings.playerSpeed);
         this.play("left-walk",true);
+        gameSettings.direction = "LEFT";
+        console.log(gameSettings.direction);
       } 
-      if(keyS.isDown) {
+      if(keyS.isDown || keyDown.isDown) {
         this.setVelocityY(gameSettings.playerSpeed);
         this.play("down-walk",true);
+        gameSettings.direction = "DOWN";
+        console.log(gameSettings.direction);
       } 
-      if(keyD.isDown) {
+      if(keyD.isDown || keyRight.isDown) {
         this.setVelocityX(gameSettings.playerSpeed);
         this.play("right-walk", true);
+        gameSettings.direction = "RIGHT";
+        console.log(gameSettings.direction);
       }
 
       /*else {
@@ -60,7 +73,14 @@ class Player extends Phaser.Physics.Arcade.Sprite{
       let keyDown = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
       let keyLeft = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
       let keyRight = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+      let space = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
+      if (Phaser.Input.Keyboard.JustDown(space)){
+          var beam = new Beam(this.scene, gameSettings.direction);
+      }
+    
+
+      /*
         if(Phaser.Input.Keyboard.JustDown(keyUp)) {
         // this.player.play("player_forward");
         var beam = new Beam(this.scene, "UP");
@@ -77,6 +97,7 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         //  this.player.play("player_right");
         var beam = new Beam(this.scene, "RIGHT");
         }
+        */
     }
     /*
     hurtPlayer(){
