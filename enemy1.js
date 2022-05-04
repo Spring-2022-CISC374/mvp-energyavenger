@@ -2,7 +2,7 @@ class Enemy1 extends Phaser.GameObjects.Sprite{
 
     constructor(scene){
         var spawnX = Phaser.Math.Between(100, config.width-100);
-        var spawnY = Phaser.Math.Between(100, config.height-100);
+        var spawnY = Phaser.Math.Between(100, config.height-200);
         super(scene, spawnX, spawnY, "enemy1");
         scene.add.existing(this);
         scene.physics.world.enableBody(this);
@@ -11,8 +11,6 @@ class Enemy1 extends Phaser.GameObjects.Sprite{
         this.speed_y = 1;
         this.play("enemy1");
         this.body.setCollideWorldBounds(true);
-
-
     }
 
     changeEnemySpeed(){

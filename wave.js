@@ -5,7 +5,6 @@ class wave extends Phaser.Scene {
 
     init(data)
     {
-        console.log('init', data);
         this.wave = data.wave;
     }
 
@@ -14,7 +13,7 @@ class wave extends Phaser.Scene {
         this.triggerTimer = this.time.addEvent({
             callback: this.timerEvent,
             callbackScope: this,
-            delay: 4000, // 1000 = 1 second
+            delay: 2000, // 1000 = 1 second
             loop: false
         });
     }

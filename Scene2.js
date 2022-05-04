@@ -7,6 +7,11 @@ class Scene2 extends Phaser.Scene {
         super("playGame");
     }
 
+    init(data)
+    {
+        this.wave = data.wave;
+    }
+
     create(){
 
       this.background = this.add.tileSprite(640, 360, config.width, config.height, "background");
@@ -20,43 +25,31 @@ class Scene2 extends Phaser.Scene {
       this.player = new Player(this);
       this.enemy1Group = new Phaser.GameObjects.Group(this);
       this.beams = new Phaser.GameObjects.Group(this);
-      // this.lamp = new Lamp(this);
       this.button = new Button(this);
 
-      this.physics.add.collider(this.player, this.button);
-
-
-      var enemy1Count = Phaser.Math.Between(5, 8);
+      var enemy1Count = this.getEnemy1Count()
       for(let i=0; i<enemy1Count; i++){
         this.enemy1Group.add(new Enemy1(this))
       }
+
       this.physics.add.collider(this.enemy1Group, this.button);
+      this.physics.add.collider(this.player, this.enemy1Group, this.hurtPlayer);
+      this.physics.add.overlap(this.beams, this.enemy1Group, this.shootEnemy, null, this);
+      this.physics.add.overlap(this.beams, this.button, this.shootButton, null, this);
+      this.physics.add.collider(this.player, this.button, this.nextWave, null, this);
 
 
+    }
 
-      /*
-      var lampCount = Phaser.Math.Between(5,8);
-      for(let i = 0; i < lampCount; i++){
-        this.lampGroup.add(new lamp(this))
+    getEnemy1Count(){
+      return this.wave + 3
+    }
+
+    nextWave(){
+      console.log('collision!!')
+      if(this.enemy1Group.getLength() == 0){
+        this.scene.start("wave-scene", { wave: this.wave + 1})
       }
-      */
-      /*
-      var lamp = this.add.sprite(300, 300, 'lamp');
-      lamp.setPipeline('Light2D');
-      lamp.setScale(.1);
-      
-    this.lamp.setPipeline('Light2D');
-    this.lamp.setScale(.1);
-    */
-    // var light  = this.lights.addLight(300,250,150);
-    // this.lights.enable().setAmbientColor(gameSettings.color);
-    
-    // this.physics.add.overlap(this.player, this.lamp, this.test);
-
-    this.physics.add.collider(this.player, this.enemy1Group, this.hurtPlayer);
-    //this.physics.add.overlap(this.player, this.enemy1Group, this.setHealthBar(gameSettings.health));
-    this.physics.add.overlap(this.beams, this.enemy1Group, this.shootEnemy, null, this);
-    this.physics.add.overlap(this.beams, this.button, this.shootButton, null, this);
 
     }
 
@@ -85,33 +78,20 @@ class Scene2 extends Phaser.Scene {
         for(let i=0; i<this.beams.getLength(); i++) {
           this.beams.getChildren()[i].destroyBeam();
         }
-
-<<<<<<< HEAD
-=======
-        
->>>>>>> cd01938a59de2f9f0c7b32b79d6c6a8e36142623
         this.setHealthBar(gameSettings.health);
         if (gameSettings.health == 0){
           this.scene.start("end-screen");
         }
-        if (this.enemy1Group.getLength()== 0){
-          this.scene.start("win-screen");
-        }
-        // this.lights.setAmbientColor(gameSettings.color);
-
     }
     hurtPlayer(player){
       gameSettings.health = Phaser.Math.Clamp(gameSettings.health - 2, 0,100); 
       //setHealthBar(gameSettings.health);
-      console.log(gameSettings.health);
-      console.log("Player Hurt!");
       //player.tint = 0xff0000;
     }
 
     shootEnemy(projectile, enemy) {
       projectile.destroy();
       enemy.destroy();
-      console.log("Enemy Hit!")
     }
 
     shootButton(projectile) {
