@@ -15,6 +15,7 @@ class Player extends Phaser.Physics.Arcade.Sprite{
     // this.body.setImmovable();
     this.body.setCollideWorldBounds(true);
     // this.tint;
+
   }
 
   movePlayerManager(){
@@ -30,12 +31,12 @@ class Player extends Phaser.Physics.Arcade.Sprite{
       let keyDown = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
       let keyLeft = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
       let keyRight = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
-
+      
       if(keyW.isDown || keyUp.isDown) {
         this.setVelocityY(-gameSettings.playerSpeed);
         this.play("up-walk", true);
         gameSettings.direction = "UP";
-      } 
+      }
       if(keyA.isDown || keyLeft.isDown) {
         this.setVelocityX(-gameSettings.playerSpeed);
         this.play("left-walk",true);
@@ -45,12 +46,22 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         this.setVelocityY(gameSettings.playerSpeed);
         this.play("down-walk",true);
         gameSettings.direction = "DOWN";
-      } 
+      }
       if(keyD.isDown || keyRight.isDown) {
         this.setVelocityX(gameSettings.playerSpeed);
         this.play("right-walk", true);
         gameSettings.direction = "RIGHT";
+      } 
+      if(keyW.isUp && gameSettings.direction == "UP"){
+        this.setFrame(2);
+      } else if(keyA.isUp && gameSettings.direction == "LEFT"){
+        this.setFrame(1);
+      } else if(keyS.isUp && gameSettings.direction == "DOWN"){
+        this.setFrame(0);
+      } else if(keyD.isUp && gameSettings.direction == "RIGHT"){
+        this.setFrame(3);
       }
+
 
       /*else {
         this.setVelocityX(0);
