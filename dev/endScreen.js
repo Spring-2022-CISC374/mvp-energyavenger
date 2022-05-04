@@ -17,7 +17,6 @@ class endScreen extends Phaser.Scene {
         retryButton.setInteractive();
         retryButton.on('pointerover', () => { console.log('pointerover'); });
         gameSettings.health = 100;
-        gameSettings.color = 0xffffff;
         retryButton.on('pointerdown', () => this.scene.start("main-menu")); 
     }
 

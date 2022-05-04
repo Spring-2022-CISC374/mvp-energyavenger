@@ -9,7 +9,12 @@ class mainMenu extends Phaser.Scene {
 
     create(){
 
-        this.add.text(20, 20, "test menu screen");
+        this.add.text(config.width / 3.2, config.height / 3.5, "Energy Avenger", {
+            font: "Bold 65px Arial",
+            fontFamily: "PressStart2P-Regular",
+            fill: "#ff0044",
+            align: "center"
+        });
 
         let playButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 2, "play_button").setDepth(1);
 
