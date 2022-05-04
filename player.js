@@ -52,13 +52,13 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         this.play("right-walk", true);
         gameSettings.direction = "RIGHT";
       } 
-      if(keyW.isUp && gameSettings.direction == "UP"){
+      if((keyW.isUp && keyUp.isUp) && gameSettings.direction == "UP"){
         this.setFrame(2);
-      } else if(keyA.isUp && gameSettings.direction == "LEFT"){
+      } else if((keyA.isUp && keyLeft.isUp) && gameSettings.direction == "LEFT"){
         this.setFrame(1);
-      } else if(keyS.isUp && gameSettings.direction == "DOWN"){
+      } else if((keyS.isUp && keyDown.isUp) && gameSettings.direction == "DOWN"){
         this.setFrame(0);
-      } else if(keyD.isUp && gameSettings.direction == "RIGHT"){
+      } else if((keyD.isUp && keyRight.isUp) && gameSettings.direction == "RIGHT"){
         this.setFrame(3);
       }
 
