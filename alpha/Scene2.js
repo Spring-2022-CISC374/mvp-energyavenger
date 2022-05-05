@@ -37,7 +37,7 @@ class Scene2 extends Phaser.Scene {
       this.physics.add.overlap(this.beams, this.enemy1Group, this.shootEnemy, null, this);
       this.physics.add.overlap(this.beams, this.button, this.shootButton, null, this);
       this.physics.add.collider(this.player, this.button, this.nextWave, null, this);
-
+      
 
     }
 

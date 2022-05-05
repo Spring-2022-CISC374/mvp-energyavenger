@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/alphaScene1.js"
   },
   {
-    "revision": "695f6f71d4d89ed982e5f7ce317e6f6c",
+    "revision": "12c86ea67f97274609fc42619e848548",
     "url": "/mvp-energyavenger/alphaScene2.js"
   },
   {
@@ -68,7 +68,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/alphabackground.js"
   },
   {
-    "revision": "1132aa6022e3e9bf2701dc66b6328447",
+    "revision": "755f533ea6e7725ff9e119a213daab50",
     "url": "/mvp-energyavenger/alphabeam.js"
   },
   {
@@ -124,7 +124,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/alphaphaser.min.js"
   },
   {
-    "revision": "ddc46bf62a2634c0420cb03dc3030c29",
+    "revision": "c644dbca55107e19fb3ef4aafe26cd1f",
     "url": "/mvp-energyavenger/alphaplayer.js"
   },
   {

@@ -25,6 +25,22 @@ class Beam extends Phaser.GameObjects.Sprite{
       else if(direction == 'RIGHT'){
         this.body.velocity.x = 250;
       }
+      else if (direction == "UPRIGHT"){
+        this.body.velocity.y = - 250;
+        this.body.velocity.x = 250;
+      }
+      else if (direction == "UPLEFT"){
+        this.body.velocity.y = - 250;
+        this.body.velocity.x = - 250;
+      }
+      else if (direction == "DOWNRIGHT"){
+        this.body.velocity.y = 250;
+        this.body.velocity.x = 250;
+      }
+      else if (direction == "DOWNLEFT"){
+        this.body.velocity.y = 250;
+        this.body.velocity.x = - 250;
+      }
 
       scene.beams.add(this);
   
