@@ -15,6 +15,7 @@ class Player extends Phaser.Physics.Arcade.Sprite{
     // this.body.setImmovable();
     this.body.setCollideWorldBounds(true);
     // this.tint;
+    this.setScale(1.3);
 
   }
 

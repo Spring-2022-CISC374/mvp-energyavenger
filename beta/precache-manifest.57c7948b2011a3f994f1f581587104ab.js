@@ -124,7 +124,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/betaphaser.min.js"
   },
   {
-    "revision": "c644dbca55107e19fb3ef4aafe26cd1f",
+    "revision": "6148fbcdddfceaeebee82d514119edca",
     "url": "/mvp-energyavenger/betaplayer.js"
   },
   {
