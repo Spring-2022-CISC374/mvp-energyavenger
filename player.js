@@ -65,7 +65,7 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         gameSettings.direction = "UPLEFT";
         console.log(gameSettings.direction);
       }
-      if ((keyS.isDown && keyA.isDown) || (keyDown.isDown && keyLEFT.isDown)){
+      if ((keyS.isDown && keyA.isDown) || (keyDown.isDown && keyLeft.isDown)){
         gameSettings.direction = "DOWNLEFT";
         console.log(gameSettings.direction);
       }
