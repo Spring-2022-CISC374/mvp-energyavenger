@@ -4,12 +4,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/alphaScene1.js"
   },
   {
-    "revision": "12c86ea67f97274609fc42619e848548",
+    "revision": "376cc7876db412e79d9612481e501ba0",
     "url": "/mvp-energyavenger/alphaScene2.js"
-  },
-  {
-    "revision": "f98cd910425bf727bd54ce767a9b6884",
-    "url": "/mvp-energyavenger/alphaassets/fonts/PressStart2P-Regular.ttf"
   },
   {
     "revision": "00d0e360d7252b32a14cbef2ed77f908",
@@ -68,7 +64,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/alphabackground.js"
   },
   {
-    "revision": "755f533ea6e7725ff9e119a213daab50",
+    "revision": "90bd5d6b36599f841ec03bded13d7f5f",
     "url": "/mvp-energyavenger/alphabeam.js"
   },
   {
@@ -80,7 +76,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/alphaendScreen.js"
   },
   {
-    "revision": "1b2d78bab5c8ec1d5c0fd839c08e7754",
+    "revision": "609a4dfeb8abea64eb8d4f516b8106ea",
     "url": "/mvp-energyavenger/alphaenemy1.js"
   },
   {
@@ -88,19 +84,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/alphafavicon.ico"
   },
   {
-    "revision": "be274c0e19aa987eb9ad76a34847a43d",
+    "revision": "c939542f203ab871d9856464e853716f",
     "url": "/mvp-energyavenger/alphagame.js"
   },
   {
-    "revision": "6fa40a8cc546041b33af",
-    "url": "/mvp-energyavenger/alphagen.main.14d14b19cc1707194c7a.bundle.js"
+    "revision": "46d82cb9875f4c161e9d",
+    "url": "/mvp-energyavenger/alphagen.main.ca44eaa1fac3521bfe5d.bundle.js"
   },
   {
-    "revision": "a778bd7b07e657798075721f2b6961d1",
+    "revision": "6c34469dcdbfe00a1e4c357c479b9c0b",
     "url": "/mvp-energyavenger/alphaindex.html"
   },
   {
-    "revision": "d8ed6aa56579ceed1e7fa1e125d3096b",
+    "revision": "a07705554a19d4b248f13c950a45421e",
     "url": "/mvp-energyavenger/alphainstructionScreen.js"
   },
   {
@@ -108,7 +104,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/alphalamp.js"
   },
   {
-    "revision": "5ff3a4b8b84831ed94b02cf0cdf9523e",
+    "revision": "2739f0f57bd280290a5688f96a49117e",
     "url": "/mvp-energyavenger/alphamainMenu.js"
   },
   {
@@ -124,7 +120,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvp-energyavenger/alphaphaser.min.js"
   },
   {
-    "revision": "c644dbca55107e19fb3ef4aafe26cd1f",
+    "revision": "9515fcc4b18badea6819c8afbc1cc409",
     "url": "/mvp-energyavenger/alphaplayer.js"
   },
   {
@@ -134,9 +130,5 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "3d3a7815d65fff4b1eda1922a04338b4",
     "url": "/mvp-energyavenger/alphavictoryScreen.js"
-  },
-  {
-    "revision": "b1a022c2e7ec17d9d83245bf4ed9ec85",
-    "url": "/mvp-energyavenger/alphawave.js"
   }
 ]);

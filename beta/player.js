@@ -15,6 +15,7 @@ class Player extends Phaser.Physics.Arcade.Sprite{
     // this.body.setImmovable();
     this.body.setCollideWorldBounds(true);
     // this.tint;
+
   }
 
   movePlayerManager(){
@@ -30,31 +31,56 @@ class Player extends Phaser.Physics.Arcade.Sprite{
       let keyDown = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
       let keyLeft = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
       let keyRight = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
-
+      
       if(keyW.isDown || keyUp.isDown) {
         this.setVelocityY(-gameSettings.playerSpeed);
         this.play("up-walk", true);
         gameSettings.direction = "UP";
-        console.log(gameSettings.direction);
-      } 
+      }
       if(keyA.isDown || keyLeft.isDown) {
         this.setVelocityX(-gameSettings.playerSpeed);
         this.play("left-walk",true);
         gameSettings.direction = "LEFT";
-        console.log(gameSettings.direction);
       } 
       if(keyS.isDown || keyDown.isDown) {
         this.setVelocityY(gameSettings.playerSpeed);
         this.play("down-walk",true);
         gameSettings.direction = "DOWN";
-        console.log(gameSettings.direction);
-      } 
+      }
       if(keyD.isDown || keyRight.isDown) {
         this.setVelocityX(gameSettings.playerSpeed);
         this.play("right-walk", true);
         gameSettings.direction = "RIGHT";
+      } 
+
+      if ((keyW.isDown && keyD.isDown) || (keyUp.isDown && keyRight.isDown)){
+        gameSettings.direction = "UPRIGHT";
         console.log(gameSettings.direction);
       }
+      if ((keyS.isDown && keyD.isDown) || (keyDown.isDown && keyRight.isDown)){
+        gameSettings.direction = "DOWNRIGHT";
+        console.log(gameSettings.direction);
+      }
+      if ((keyW.isDown && keyA.isDown) || (keyUp.isDown && keyLeft.isDown)){
+        gameSettings.direction = "UPLEFT";
+        console.log(gameSettings.direction);
+      }
+      if ((keyS.isDown && keyA.isDown) || (keyDown.isDown && keyLeft.isDown)){
+        gameSettings.direction = "DOWNLEFT";
+        console.log(gameSettings.direction);
+      }
+
+
+      if((keyW.isUp && keyUp.isUp) && gameSettings.direction == "UP"){
+        this.setFrame(2);
+      } else if((keyA.isUp && keyLeft.isUp) && gameSettings.direction == "LEFT"){
+        this.setFrame(1);
+      } else if((keyS.isUp && keyDown.isUp) && gameSettings.direction == "DOWN"){
+        this.setFrame(0);
+      } else if((keyD.isUp && keyRight.isUp) && gameSettings.direction == "RIGHT"){
+        this.setFrame(3);
+      }
+
 
       /*else {
         this.setVelocityX(0);
