@@ -20,6 +20,7 @@ class wave extends Phaser.Scene {
 
     timerEvent() {
         console.log('timerEvent');
-        this.scene.start("playGame", { wave: this.wave}); 
+            console.log(this.wave);
+                this.scene.start("playGame", { wave: this.wave}); 
     }
 }

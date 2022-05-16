@@ -48,10 +48,14 @@ class Scene2 extends Phaser.Scene {
     nextWave(){
       console.log('collision!!')
       if(this.enemy1Group.getLength() == 0){
-        this.scene.start("wave-scene", { wave: this.wave + 1})
+        if (this.wave+1 === 4){
+          this.scene.start("win-screen", {wave: this.wave+1});
+        } else {
+          this.scene.start("wave-scene", {wave: this.wave+1});
+        }
       }
-
     }
+    
 
     setHealthBar(value){
       const width = 200;
@@ -80,7 +84,7 @@ class Scene2 extends Phaser.Scene {
         }
         this.setHealthBar(gameSettings.health);
         if (gameSettings.health == 0){
-          this.scene.start("end-screen");
+          this.scene.start("end-screen", {wave: this.wave});
         }
     }
     hurtPlayer(player){

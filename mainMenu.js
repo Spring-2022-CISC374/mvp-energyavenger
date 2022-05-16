@@ -16,9 +16,9 @@ class mainMenu extends Phaser.Scene {
             align: "center"
         });
 
-        let playButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 2, "play_button").setDepth(1);
+        let playButton = this.add.image(this.game.renderer.width / 2, this.game.renderer.height / 1.7, "play_button").setDepth(1);
 
-        let optionButton = this.add.image(this.game.renderer.width /2 , this.game.renderer.height / 2 + 100, "options_button").setDepth(1);
+        //let optionButton = this.add.image(this.game.renderer.width /2 , this.game.renderer.height / 2 + 100, "options_button").setDepth(1);
 
         playButton.setInteractive();
         playButton.on('pointerover', () => { console.log('pointerover'); });
